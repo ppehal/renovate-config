@@ -1,0 +1,97 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    "helpers:pinGitHubActionDigests",
+    ":disablePeerDependencies"
+  ],
+  "labels": ["dependencies"],
+  "schedule": ["before 6am on Monday"],
+  "timezone": "Europe/Prague",
+  "prHourlyLimit": 10,
+  "prConcurrentLimit": 5,
+  "automergeType": "pr",
+  "platformAutomerge": true,
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true
+  },
+  "packageRules": [
+    {
+      "description": "[1] Patch automerge — stable packages (>=1.0.0)",
+      "matchUpdateTypes": ["patch"],
+      "matchCurrentVersion": ">=1.0.0",
+      "automerge": true
+    },
+    {
+      "description": "[2] Minor automerge — stable packages (semver guarantees BC)",
+      "matchUpdateTypes": ["minor"],
+      "matchCurrentVersion": ">=1.0.0",
+      "automerge": true
+    },
+    {
+      "description": "[3] Patch automerge — 0.x packages (patch is safe in practice)",
+      "matchUpdateTypes": ["patch"],
+      "matchCurrentVersion": "<1.0.0",
+      "automerge": true
+    },
+    {
+      "description": "[4] Pre-release: never automerge (matches proposed version)",
+      "matchNewValue": "/-(alpha|beta|rc|canary)/",
+      "automerge": false
+    },
+    {
+      "description": "[5] Next.js ecosystem — group for clean PRs",
+      "matchPackageNames": ["/^next$/", "/^@next\\//" , "eslint-config-next"],
+      "groupName": "Next.js ecosystem"
+    },
+    {
+      "description": "[6] Prisma — group for clean PRs",
+      "matchPackageNames": ["/^prisma$/", "/^@prisma\\//"],
+      "groupName": "Prisma"
+    },
+    {
+      "description": "[7] Testing tools — group",
+      "matchPackageNames": [
+        "/^vitest$/", "/^@vitest\\//", "/^@vitejs\\//",
+        "/^@testing-library\\//", "/^@playwright\\//", "playwright"
+      ],
+      "groupName": "Testing"
+    },
+    {
+      "description": "[8] Lint and format — group",
+      "matchPackageNames": [
+        "/^eslint$/", "/^eslint-/", "/^@eslint\\//",
+        "typescript-eslint", "/^prettier$/", "prettier-plugin-tailwindcss",
+        "/^@commitlint\\//", "commitizen", "husky", "lint-staged", "globals"
+      ],
+      "groupName": "Lint and Format"
+    },
+    {
+      "description": "[9] TypeScript + @types — group",
+      "matchPackageNames": ["typescript", "/^@types\\//"],
+      "groupName": "TypeScript"
+    },
+    {
+      "description": "[10] Docker — pin digests",
+      "matchDatasources": ["docker"],
+      "pinDigests": true
+    },
+    {
+      "description": "[11] Major updates — manual + dashboard approval. ONLY explicit automerge:false.",
+      "matchUpdateTypes": ["major"],
+      "automerge": false,
+      "dependencyDashboardApproval": true
+    }
+  ],
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "labels": ["dependencies", "security"],
+    "schedule": ["at any time"],
+    "automerge": true
+  },
+  "osvVulnerabilityAlerts": {
+    "enabled": true,
+    "automerge": true
+  }
+}
