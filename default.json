@@ -5,10 +5,14 @@
     "helpers:pinGitHubActionDigests",
     ":disablePeerDependencies"
   ],
-  "labels": ["dependencies"],
-  "schedule": ["before 6am on Monday"],
+  "labels": [
+    "dependencies"
+  ],
+  "schedule": [
+    "before 6am on Monday"
+  ],
   "timezone": "Europe/Prague",
-  "prHourlyLimit": 10,
+  "prHourlyLimit": 3,
   "prConcurrentLimit": 5,
   "automergeType": "pr",
   "platformAutomerge": true,
@@ -18,20 +22,26 @@
   },
   "packageRules": [
     {
-      "description": "[1] Patch automerge — stable packages (>=1.0.0)",
-      "matchUpdateTypes": ["patch"],
+      "description": "[1] Patch automerge \u2014 stable packages (>=1.0.0)",
+      "matchUpdateTypes": [
+        "patch"
+      ],
       "matchCurrentVersion": ">=1.0.0",
       "automerge": true
     },
     {
-      "description": "[2] Minor automerge — stable packages (semver guarantees BC)",
-      "matchUpdateTypes": ["minor"],
+      "description": "[2] Minor automerge \u2014 stable packages (semver guarantees BC)",
+      "matchUpdateTypes": [
+        "minor"
+      ],
       "matchCurrentVersion": ">=1.0.0",
       "automerge": true
     },
     {
-      "description": "[3] Patch automerge — 0.x packages (patch is safe in practice)",
-      "matchUpdateTypes": ["patch"],
+      "description": "[3] Patch automerge \u2014 0.x packages (patch is safe in practice)",
+      "matchUpdateTypes": [
+        "patch"
+      ],
       "matchCurrentVersion": "<1.0.0",
       "automerge": true
     },
@@ -41,53 +51,84 @@
       "automerge": false
     },
     {
-      "description": "[5] Next.js ecosystem — group for clean PRs",
-      "matchPackageNames": ["/^next$/", "/^@next\\//" , "eslint-config-next"],
+      "description": "[5] Next.js ecosystem \u2014 group for clean PRs",
+      "matchPackageNames": [
+        "/^next$/",
+        "/^@next\\//",
+        "eslint-config-next"
+      ],
       "groupName": "Next.js ecosystem"
     },
     {
-      "description": "[6] Prisma — group for clean PRs",
-      "matchPackageNames": ["/^prisma$/", "/^@prisma\\//"],
+      "description": "[6] Prisma \u2014 group for clean PRs",
+      "matchPackageNames": [
+        "/^prisma$/",
+        "/^@prisma\\//"
+      ],
       "groupName": "Prisma"
     },
     {
-      "description": "[7] Testing tools — group",
+      "description": "[7] Testing tools \u2014 group",
       "matchPackageNames": [
-        "/^vitest$/", "/^@vitest\\//", "/^@vitejs\\//",
-        "/^@testing-library\\//", "/^@playwright\\//", "playwright"
+        "/^vitest$/",
+        "/^@vitest\\//",
+        "/^@vitejs\\//",
+        "/^@testing-library\\//",
+        "/^@playwright\\//",
+        "playwright"
       ],
       "groupName": "Testing"
     },
     {
-      "description": "[8] Lint and format — group",
+      "description": "[8] Lint and format \u2014 group",
       "matchPackageNames": [
-        "/^eslint$/", "/^eslint-/", "/^@eslint\\//",
-        "typescript-eslint", "/^prettier$/", "prettier-plugin-tailwindcss",
-        "/^@commitlint\\//", "commitizen", "husky", "lint-staged", "globals"
+        "/^eslint$/",
+        "/^eslint-/",
+        "/^@eslint\\//",
+        "typescript-eslint",
+        "/^prettier$/",
+        "prettier-plugin-tailwindcss",
+        "/^@commitlint\\//",
+        "commitizen",
+        "husky",
+        "lint-staged",
+        "globals"
       ],
       "groupName": "Lint and Format"
     },
     {
-      "description": "[9] TypeScript + @types — group",
-      "matchPackageNames": ["typescript", "/^@types\\//"],
+      "description": "[9] TypeScript + @types \u2014 group",
+      "matchPackageNames": [
+        "typescript",
+        "/^@types\\//"
+      ],
       "groupName": "TypeScript"
     },
     {
-      "description": "[10] Docker — pin digests",
-      "matchDatasources": ["docker"],
+      "description": "[10] Docker \u2014 pin digests",
+      "matchDatasources": [
+        "docker"
+      ],
       "pinDigests": true
     },
     {
-      "description": "[11] Major updates — manual + dashboard approval. ONLY explicit automerge:false.",
-      "matchUpdateTypes": ["major"],
+      "description": "[11] Major updates \u2014 manual + dashboard approval. ONLY explicit automerge:false.",
+      "matchUpdateTypes": [
+        "major"
+      ],
       "automerge": false,
       "dependencyDashboardApproval": true
     }
   ],
   "vulnerabilityAlerts": {
     "enabled": true,
-    "labels": ["dependencies", "security"],
-    "schedule": ["at any time"],
+    "labels": [
+      "dependencies",
+      "security"
+    ],
+    "schedule": [
+      "at any time"
+    ],
     "automerge": true
   },
   "osvVulnerabilityAlerts": {
