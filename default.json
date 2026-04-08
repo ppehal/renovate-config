@@ -133,6 +133,11 @@
   },
   "osvVulnerabilityAlerts": {
     "enabled": true,
+    "labels": [
+      "dependencies",
+      "security"
+    ],
     "automerge": true
-  }
+  },
+  "transitiveRemediation": true
 }
