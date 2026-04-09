@@ -22,16 +22,9 @@
   },
   "packageRules": [
     {
-      "description": "[1] Patch automerge \u2014 stable packages (>=1.0.0)",
+      "description": "[1] Patch+minor automerge \u2014 stable packages (>=1.0.0)",
       "matchUpdateTypes": [
-        "patch"
-      ],
-      "matchCurrentVersion": ">=1.0.0",
-      "automerge": true
-    },
-    {
-      "description": "[2] Minor automerge \u2014 stable packages (semver guarantees BC)",
-      "matchUpdateTypes": [
+        "patch",
         "minor"
       ],
       "matchCurrentVersion": ">=1.0.0",
