@@ -31,7 +31,7 @@
       "automerge": true
     },
     {
-      "description": "[3] Patch automerge \u2014 0.x packages (patch is safe in practice)",
+      "description": "[2] Patch automerge \u2014 0.x packages (patch is safe in practice)",
       "matchUpdateTypes": [
         "patch"
       ],
@@ -39,12 +39,12 @@
       "automerge": true
     },
     {
-      "description": "[4] Pre-release: never automerge (matches proposed version)",
+      "description": "[3] Pre-release: never automerge (matches proposed version)",
       "matchNewValue": "/-(alpha|beta|rc|canary)/",
       "automerge": false
     },
     {
-      "description": "[5] Next.js ecosystem \u2014 group for clean PRs",
+      "description": "[4] Next.js ecosystem \u2014 group for clean PRs",
       "matchPackageNames": [
         "/^next$/",
         "/^@next\\//",
@@ -53,7 +53,7 @@
       "groupName": "Next.js ecosystem"
     },
     {
-      "description": "[6] Prisma \u2014 group for clean PRs",
+      "description": "[5] Prisma \u2014 group for clean PRs",
       "matchPackageNames": [
         "/^prisma$/",
         "/^@prisma\\//"
@@ -61,7 +61,7 @@
       "groupName": "Prisma"
     },
     {
-      "description": "[7] Testing tools \u2014 group",
+      "description": "[6] Testing tools \u2014 group",
       "matchPackageNames": [
         "/^vitest$/",
         "/^@vitest\\//",
@@ -73,7 +73,7 @@
       "groupName": "Testing"
     },
     {
-      "description": "[8] Lint and format \u2014 group",
+      "description": "[7] Lint and format \u2014 group",
       "matchPackageNames": [
         "/^eslint$/",
         "/^eslint-/",
@@ -90,7 +90,7 @@
       "groupName": "Lint and Format"
     },
     {
-      "description": "[9] TypeScript + @types \u2014 group",
+      "description": "[8] TypeScript + @types \u2014 group",
       "matchPackageNames": [
         "typescript",
         "/^@types\\//"
@@ -98,14 +98,14 @@
       "groupName": "TypeScript"
     },
     {
-      "description": "[10] Docker \u2014 pin digests",
+      "description": "[9] Docker \u2014 pin digests",
       "matchDatasources": [
         "docker"
       ],
       "pinDigests": true
     },
     {
-      "description": "[11] Major updates \u2014 manual + dashboard approval. ONLY explicit automerge:false.",
+      "description": "[10] Major updates \u2014 manual + dashboard approval. ONLY explicit automerge:false.",
       "matchUpdateTypes": [
         "major"
       ],
