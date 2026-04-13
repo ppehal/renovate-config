@@ -139,5 +139,12 @@
     ],
     "automerge": true
   },
-  "transitiveRemediation": true
+  "transitiveRemediation": true,
+  "hostRules": [
+    {
+      "matchHost": "https://npm.pkg.github.com/",
+      "hostType": "npm",
+      "token": "{{ secrets.GH_PACKAGES_TOKEN }}"
+    }
+  ]
 }
