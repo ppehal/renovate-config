@@ -105,7 +105,14 @@
       "pinDigests": true
     },
     {
-      "description": "[10] Major updates \u2014 manual + dashboard approval. ONLY explicit automerge:false.",
+      "description": "[10] Pin dependencies \u2014 automerge (safe, no version change)",
+      "matchUpdateTypes": [
+        "pin"
+      ],
+      "automerge": true
+    },
+    {
+      "description": "[11] Major updates \u2014 manual + dashboard approval. ONLY explicit automerge:false.",
       "matchUpdateTypes": [
         "major"
       ],
